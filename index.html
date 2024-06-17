@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript | Weather App</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/selectList.css" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="select2/select2.min.css" />
+    <script src="select2/select2.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container" id="weather">
+        <div class="weather-search">
+          <div class="weather-search-inner">
+            <div class="search-button">
+              <button id="setting-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32px"
+                  viewBox="0 -960 960 960"
+                  width="32px"
+                  fill="#fff"
+                >
+                  <path
+                    d="m382-80-18.67-126.67q-17-6.33-34.83-16.66-17.83-10.34-32.17-21.67L178-192.33 79.33-365l106.34-78.67q-1.67-8.33-2-18.16-.34-9.84-.34-18.17 0-8.33.34-18.17.33-9.83 2-18.16L79.33-595 178-767.67 296.33-715q14.34-11.33 32.34-21.67 18-10.33 34.66-16L382-880h196l18.67 126.67q17 6.33 35.16 16.33 18.17 10 31.84 22L782-767.67 880.67-595l-106.34 77.33q1.67 9 2 18.84.34 9.83.34 18.83 0 9-.34 18.5Q776-452 774-443l106.33 78-98.66 172.67-118-52.67q-14.34 11.33-32 22-17.67 10.67-35 16.33L578-80H382Zm55.33-66.67h85l14-110q32.34-8 60.84-24.5T649-321l103.67 44.33 39.66-70.66L701-415q4.33-16 6.67-32.17Q710-463.33 710-480q0-16.67-2-32.83-2-16.17-7-32.17l91.33-67.67-39.66-70.66L649-638.67q-22.67-25-50.83-41.83-28.17-16.83-61.84-22.83l-13.66-110h-85l-14 110q-33 7.33-61.5 23.83T311-639l-103.67-44.33-39.66 70.66L259-545.33Q254.67-529 252.33-513 250-497 250-480q0 16.67 2.33 32.67 2.34 16 6.67 32.33l-91.33 67.67 39.66 70.66L311-321.33q23.33 23.66 51.83 40.16 28.5 16.5 60.84 24.5l13.66 110Zm43.34-200q55.33 0 94.33-39T614-480q0-55.33-39-94.33t-94.33-39q-55.67 0-94.5 39-38.84 39-38.84 94.33t38.84 94.33q38.83 39 94.5 39ZM480-480Z"
+                  />
+                </svg>
+              </button>
+              <button id="location-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32px"
+                  viewBox="0 -960 960 960"
+                  width="32px"
+                  fill="#fff"
+                >
+                  <path
+                    d="M446.67-42v-76.67q-133-14-223.5-104.5t-104.5-223.5H42v-66.66h76.67q14-133 104.5-223.5t223.5-104.5V-918h66.66v76.67q133 14 223.5 104.5t104.5 223.5H918v66.66h-76.67q-14 133-104.5 223.5t-223.5 104.5V-42h-66.66ZM480-184q122 0 209-87t87-209q0-122-87-209t-209-87q-122 0-209 87t-87 209q0 122 87 209t209 87Zm0-142.67q-64 0-108.67-44.66Q326.67-416 326.67-480t44.66-108.67Q416-633.33 480-633.33t108.67 44.66Q633.33-544 633.33-480t-44.66 108.67Q544-326.67 480-326.67Zm0-66.66q36.33 0 61.5-25.17t25.17-61.5q0-36.33-25.17-61.5T480-566.67q-36.33 0-61.5 25.17T393.33-480q0 36.33 25.17 61.5t61.5 25.17Zm0-86.67Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="search-input">
+              <input type="text" placeholder="Enter city name..." />
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="40px"
+                  viewBox="0 -960 960 960"
+                  width="40px"
+                  fill="#14151b"
+                >
+                  <path
+                    d="M792-120.67 532.67-380q-30 25.33-69.64 39.67Q423.39-326 378.67-326q-108.44 0-183.56-75.17Q120-476.33 120-583.33t75.17-182.17q75.16-75.17 182.5-75.17 107.33 0 182.16 75.17 74.84 75.17 74.84 182.27 0 43.23-14 82.9-14 39.66-40.67 73l260 258.66-48 48Zm-414-272q79.17 0 134.58-55.83Q568-504.33 568-583.33q0-79-55.42-134.84Q457.17-774 378-774q-79.72 0-135.53 55.83-55.8 55.84-55.8 134.84t55.8 134.83q55.81 55.83 135.53 55.83Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="weather-box" id="weather-box"></div>
+      </div>
+    </header>
+    <main>
+      <div class="container" id="forecast">
+        <div class="forecast-title">
+          <h2>5-day forecast</h2>
+        </div>
+        <div class="forecast-weather">
+          <div class="forecast-weather-items" id="forecast-container"></div>
+        </div>
+      </div>
+    </main>
+    <div class="weather-setting" id="weather-setting">
+      <div class="weather-setting-inner">
+        <div class="weather-setting-header">
+          <button class="setting-close-button" id="setting-close-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32px"
+              viewBox="0 -960 960 960"
+              width="32px"
+              fill="#14151b"
+            >
+              <path
+                d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="weather-setting-content">
+          <div class="weather-units">
+            <label>Temperature unit</label>
+            <select id="weather-unit-select"></select>
+          </div>
+          <div class="forecast-time">
+            <label>5-day forecast time</label>
+            <select id="forecast-time-select"></select>
+          </div>
+        </div>
+        <div class="weather-setting-footer">
+          <button class="save-setting-button" id="save-setting-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32px"
+              viewBox="0 -960 960 960"
+              width="32px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M840-682v495.33q0 27-19.83 46.84Q800.33-120 773.33-120H186.67q-27 0-46.84-19.83Q120-159.67 120-186.67v-586.66q0-27 19.83-46.84Q159.67-840 186.67-840H682l158 158Zm-66.67 29.33L652.67-773.33h-466v586.66h586.66v-466ZM479.84-243.33q45.49 0 77.49-31.85 32-31.84 32-77.33 0-45.49-31.84-77.49-31.84-32-77.33-32-45.49 0-77.49 31.84-32 31.85-32 77.34t31.84 77.49q31.84 32 77.33 32ZM235.33-576H594v-148.67H235.33V-576Zm-48.66-76.67v466-586.66 120.66Z"
+              />
+            </svg>
+            <span>Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>
